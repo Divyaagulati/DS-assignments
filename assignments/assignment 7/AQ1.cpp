@@ -90,46 +90,10 @@ void Merge(int arr[],int left,int mid,int right){
     }
 }
 
-void MergeSortRecursive(int arr[],int left,int right){
-//recursive approach
-    if(left >= right) return ;
-    int mid = (left+right)/2;
-    MergeSortRecursive(arr,left,mid);
-    MergeSortRecursive(arr,mid+1,right);
-    Merge(arr,left,mid,right);
-}
 
-int Partition(int arr[], int low, int high) {
-    int pivot = arr[low];
-    int i = low - 1;
-    int j = high + 1;
 
-    while (true) {
 
-        do {
-            i++;
-        } while (arr[i] < pivot);
 
-        do {
-            j--;
-        } while (arr[j] > pivot);
-
-        if (i >= j)
-            return j;
-
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-}
-
-void QuickSort(int arr[], int low, int high) {
-    if (low < high) {
-        int p = Partition(arr, low, high);
-        QuickSort(arr, low, p);
-        QuickSort(arr, p + 1, high);
-    }
-}
 
 
 int main(){
@@ -163,13 +127,6 @@ int main(){
     cout << "BUBBLE SORT\n";
     DisplayArr(arr3,size);
 
-    MergeSortRecursive(arr4,0,size-1);
-    cout << "MERGE SORT\n";
-    DisplayArr(arr4,size);
-
-    QuickSort(arr5,0,size-1);
-    cout << "QUICK SORT\n";
-    DisplayArr(arr5,size);
-
+    
     return 0;
 }
